@@ -1,0 +1,32 @@
+
+<ion-view view-title="Vacant and Abandoned Properties">
+
+      <ion-nav-buttons side="secondary">
+          <a class="button button-icon icon ion-ios-location-outline" ng-click="showMapView()"></a>
+      </ion-nav-buttons>
+
+<div class="bar bar-subheader item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input ng-model="searchInput" type="search" placeholder="Filter">
+  </label>
+  <button class="button button-clear">
+    Cancel
+  </button>
+</div>
+
+
+<!--| orderBy: 'searchableData'-->
+
+
+
+      <ion-content scroll="true" class="has-subheader" ng-controller="MapCtrl">
+          <ion-list>
+              <ion-item class="icon-left" ng-repeat="p in vacantProperties | filter : {searchableData: searchInput} | orderBy: 'searchableData' " ui-sref="app.property({ property: p })">
+                  <i ng-class="p.PIN != null ? 'ion-android-attach' : ''"></i>
+                  <span>{{p.address_street_number}} {{p.address_street_direction}} {{p.address_street_name}} {{address_street_suffix}} </span>
+              </ion-item>
+          </ion-list>
+
+      </ion-content>
+  </ion-view>

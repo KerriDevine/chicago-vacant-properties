@@ -1,0 +1,35 @@
+
+
+<ion-view view-title="Vacant and Abandoned Properties">
+      <ion-nav-buttons side="secondary">
+          <a class="button button-icon icon ion-ios-list-outline" ng-click="showListView()"></a>
+      </ion-nav-buttons>
+
+      <ion-content scroll="false" ng-controller="MapCtrl">
+        <div class="bar item-input-inset">
+            <label class="item-input-wrapper" id="searchParent">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+            </label>
+            <button class="button button-clear">
+            Cancel
+            </button>
+        </div>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+        <ui-gmap-search-box template="searchbox.template" events="searchbox.events" parentdiv="searchbox.parentDiv"></ui-gmap-search-box>
+        <ui-gmap-markers models="vacantProperties" coords="'location'" idKey="'idKey'" events="markerEvents" doCluster="true">
+
+        </ui-gmap-markers>
+        <ui-gmap-window
+          show="window.show"
+          coords="window.model"
+          templateUrl="'../templates/window.html'"
+          templateParameter="window.model"
+          options="window.options"
+          ng-cloak>
+        </ui-gmap-window>
+
+        <!--ui-gmap-layer type="KmlLayer" options="cityBoundryOptions" show="showCityBoundry"></ui-gmap-layer>
+        <ui-gmap-layer type="KmlLayer" options="neighborhoodBoundryOptions" show="showNeighborhoodBoundry"></ui-gmap-layer-->
+        </ui-gmap-google-map>
+      </ion-content>
+  </ion-view>

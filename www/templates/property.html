@@ -1,0 +1,48 @@
+<ion-view view-title="{{vm.property.address_street_number}} {{vm.property.address_street_direction}} {{vm.property.address_street_name}} {{vm.property.address_street_suffix}}">
+      <ion-content scroll="true" ng-controller="PropertyCtrl">
+
+       <div id="pano"></div>
+       <ion-list>
+           <ion-item ng-show="vm.property.PIN.length > 0" ui-sref="app.county({pin : vm.property.PIN})">
+               Property ID Number {{vm.property.PIN}}
+           </ion-item>
+           <ion-item>Vacant or Occupied:
+               <span>
+                   {{vm.property.is_the_building_currently_vacant_or_occupied_ || "Unknown"}}</span>
+            </ion-item>
+           <ion-item>Open or Boarded:
+               <span>
+                   {{vm.property.is_building_open_or_boarded_ || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Lot Location:
+               <span>
+                   {{vm.property.if_the_building_is_open_where_is_the_entry_point_ || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Entry Point:
+               <span>{{vm.property.entry_point || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Date Reported:
+               <span>{{vm.property.date_service_request_was_received || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Zip Code:
+               <span>{{vm.property.zip_code || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Squatters:
+              <span>{{vm.property.any_people_using_property_homeless_childen_gangs_ || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Dangerous or Hazardous:
+               <span>{{vm.property.is_the_building_dangerous_or_hazardous_ || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Fire Damage:
+               <span>{{"Unknown"}}</span>
+           </ion-item>
+           <ion-item>Police District:
+               <span>{{vm.property.police_district || "Unknown"}}</span>
+           </ion-item>
+           <ion-item>Community Area:
+               <span>{{vm.property.community_area || "Unknown"}}</span>
+           </ion-item>
+       </ion-list>
+
+      </ion-content>
+  </ion-view>

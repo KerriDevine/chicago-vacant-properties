@@ -1,0 +1,49 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+        <button class="button button-clear" ng-click="closeFilter()">Close</button>
+    </div>
+    <h1 class="title">Filters</h1>
+    <div class="buttons">
+        <button class="button button-clear" ng-click="doFilter()">Update</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doFilter()">
+      <div class="list">
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" type="text" placeholder="Zip Code" ng-model="filterData.zip_code">
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Community Area
+            </div>
+            <select ng-model="filterData.community_area">
+                <option ng-repeat="i in getArray(77) track by $index" value="{{$index+1}}">{{$index+1}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Ward
+            </div>
+            <select>
+                <option selected>Default</option>
+                <option >Green</option>
+                <option>Red</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Police District
+            </div>
+            <select>
+                <option selected>Default</option>
+                <option >Green</option>
+                <option>Red</option>
+            </select>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
